@@ -1,0 +1,59 @@
+* SPICE export by:  S-Edit 16.30
+* Export time:      Wed Apr 24 15:04:15 2024
+* Design:           Akanksha_project
+* Cell:             srff_d2
+* Interface:        view0
+* View:             view0
+* View type:        connectivity
+* Export as:        top-level cell
+* Export mode:      hierarchical
+* Exclude empty cells: yes
+* Exclude .model:   no
+* Exclude .end:     no
+* Exclude simulator commands:     no
+* Expand paths:     yes
+* Wrap lines:       no
+* Root path:        C:\Akanksha\Akanksha_project
+* Exclude global pins:   no
+* Exclude instance locations: no
+* Control property name(s): SPICE
+
+********* Simulation Settings - General Section *********
+.include "H:\p045\p045_cmos_models_ff.inc"
+
+*************** Subcircuits *****************
+.subckt and_d2 A B Y Gnd Vdd 
+MNMOS_1 N_2 A N_1 N_1 NMOS W=45n L=45n $AS=2.25p PS=6.8u AD=2.25p PD=6.8u $ $x=600 $y=0 $w=400 $h=600
+MNMOS_2 N_1 B Gnd Gnd NMOS W=45n L=45n $AS=2.25p PS=6.8u AD=2.25p PD=6.8u $ $x=600 $y=0 $w=400 $h=600
+MNMOS_3 Y N_2 Gnd Gnd NMOS W=45n L=45n $AS=2.25p PS=6.8u AD=2.25p PD=6.8u $ $x=600 $y=0 $w=400 $h=600
+MPMOS_1 N_2 A Vdd Vdd PMOS W=90n L=45n $AS=2.25p PS=6.8u AD=2.25p PD=6.8u $ $x=600 $y=0 $w=400 $h=600
+MPMOS_2 N_2 B Vdd Vdd PMOS W=90n L=45n $AS=2.25p PS=6.8u AD=2.25p PD=6.8u $ $x=600 $y=0 $w=400 $h=600
+MPMOS_3 Y N_2 Vdd Vdd PMOS W=90n L=45n $AS=2.25p PS=6.8u AD=2.25p PD=6.8u $ $x=600 $y=0 $w=400 $h=600
+.ends
+
+.subckt nor_d2 A B Out Gnd Vdd 
+MNMOS_1 Out A Gnd Gnd NMOS W=45n L=45n $AS=2.25p PS=6.8u AD=2.25p PD=6.8u $ $x=600 $y=0 $w=400 $h=600
+MNMOS_2 Out B Gnd Gnd NMOS W=45n L=45n $AS=2.25p PS=6.8u AD=2.25p PD=6.8u $ $x=600 $y=0 $w=400 $h=600
+MPMOS_1 N_1 A Vdd Vdd PMOS W=90n L=45n $AS=2.25p PS=6.8u AD=2.25p PD=6.8u $ $x=600 $y=0 $w=400 $h=600
+MPMOS_2 Out B N_1 N_1 PMOS W=90n L=45n $AS=2.25p PS=6.8u AD=2.25p PD=6.8u $ $x=600 $y=0 $w=400 $h=600
+.ends
+
+
+***** Top Level *****
+Xand_d2_1 Clk Set N_2 Gnd Vdd and_d2 $ $x=200 $y=500 $w=1800 $h=1400
+Xand_d2_2 Reset Clk N_1 Gnd Vdd and_d2 $ $x=200 $y=3000 $w=1800 $h=1400
+Xnor_d2_1 N_1 Qnot Q Gnd Vdd nor_d2 $ $x=3100 $y=3000 $w=1800 $h=1400
+Xnor_d2_2 Q N_2 Qnot Gnd Vdd nor_d2 $ $x=3100 $y=700 $w=1800 $h=1400
+
+********* Simulation Settings - Analysis Section *********
+V1 Reset 0 PULSE (1 0 0 1n 1n 20n 40n)
+V2 Set 0 PULSE (1 0 0 1n 1n 40n 80n)
+V3 Clk 0 PULSE (1 0 0 1n 1n 10n 20n)
+Vdd Vdd 0 1
+.tran 1n 200n start=0
+.print tran v(Reset,0) v(Set,0) v(Clk,0) v(Q,0) v(Qnot)
+
+********* Simulation Settings - Additional SPICE Commands *********
+
+.end
+
