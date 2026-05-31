@@ -1,0 +1,46 @@
+T-Spice - Tanner SPICE
+Version 16.30
+Network license
+Product Release ID: T-Spice Win64 16.30.20150626.02:41:53
+Copyright © 1988-2015 Mentor Graphics Corporation
+
+	Parsing "H:\VNR\Semester 6\VLSI\Lab\mux4_1_d2.sp"
+	Initializing parser from header file "C:\Tanner tool\tiburonda\models\VAdatabase.sp"
+	Including "H:\p045\p045_cmos_models_ff.inc"
+	Including "H:\p045\nmos_vtl_ff.inc"
+	Including "H:\p045\pmos_vtl_ff.inc"
+
+Start of mux4_1_d2.sp
+Loaded BSIM4v45 model library, Berkeley BSIM4 v4.5.0
+Warning : Node N_1 is only attached to FET gate terminals; voltage is undefined
+Warning : "mux4_1_d2.sp" line 66 Power supply node S1 is singularly attached to V5, and will be terminated with a Gmin conductance
+
+General options:
+        threads = 1
+
+ Device and node counts:
+              MOSFETs -      60
+    MOSFET geometries -       2
+      Voltage sources -       7
+   Subckt Definitions -       5
+     Subckt Instances -      15
+     Unique Instances -       4
+    Model Definitions -       2
+      Computed Models -       2
+    Independent nodes -     271
+       Boundary nodes -       8
+          Total nodes -     279
+*** 2 WARNING MESSAGES GENERATED DURING SETUP
+
+
+	Opening simulation database "H:\VNR\Semester 6\VLSI\Lab\mux4_1_d2.tsim"
+
+Parsing                      0.02 seconds
+Setup                        0.04 seconds
+DC operating point           0.06 seconds
+Transient Analysis           0.73 seconds
+Overhead                     0.78 seconds
+-----------------------------------------
+Total                        1.63 seconds
+
+Simulation completed	with  2 Warnings

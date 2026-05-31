@@ -1,0 +1,21 @@
+T-Spice - Tanner SPICE
+Version 16.30
+Network license
+Product Release ID: T-Spice Win64 16.30.20150626.02:41:53
+Copyright © 1988-2015 Mentor Graphics Corporation
+
+	Parsing "H:\VNR\Semester 6\VLSI\Lab\pmos_4h6.sp"
+	Initializing parser from header file "C:\Tanner tool\tiburonda\models\VAdatabase.sp"
+	Including "H:\p045\nmos_vtl_ff.inc"
+
+Start of pmos_4h6.sp
+Loaded BSIM4v45 model library, Berkeley BSIM4 v4.5.0
+Fatal Error : "pmos_4h6.sp" line 26 Could not resolve model "PMOS" referenced by "MPMOS_1"
+
+Parsing                      0.01 seconds
+Setup                        0.01 seconds
+Overhead                     0.36 seconds
+-----------------------------------------
+Total                        0.38 seconds
+
+Simulation failed	with  1 Fatal Error
